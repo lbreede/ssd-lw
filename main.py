@@ -12,7 +12,7 @@ import re
 def main():
 
 	dic = "german.dic"
-	# dic = "english.txt"
+	# dic = "english.dic"
 
 	with open(dic, "r") as f:
 		words = f.read().split("\n")
@@ -21,6 +21,7 @@ def main():
 
 	bad_letters = "[gkmqvwxzäüöß]"
 	# bad_letters = "[gkmqvwxzäüößio]" # added i and o to bad letters
+	# bad_letters = "[gkmqvwxzäüößio-]" # added - after getting "three-and-a-halfpenny"
 
 	longest_possible_word = ""
 
