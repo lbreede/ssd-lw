@@ -30,7 +30,58 @@ def main():
 			not re.search(bad_letters, w)):
 			longest_possible_word = w
 
-	print(longest_possible_word)
+	draw_word(longest_possible_word)
+
+def convert_letter(char):
+	chars = {
+			"0": [" _ ", "| |", "|_|"],
+			"1": ["   ", "  |", "  |"],
+			"2": [" _ ", " _|", "|_ "],
+			"3": [" _ ", " _|", " _|"],
+			"4": ["   ", "|_|", "  |"],
+			"5": [" _ ", "|_ ", " _|"],
+			"6": [" _ ", "|_ ", "|_|"],
+			"7": [" _ ", "| |", "  |"],
+			"8": [" _ ", "|_|", "|_|"],
+			"9": [" _ ", "|_|", " _|"],
+			"a": [" _ ", "|_|", "| |"],
+			"b": ["   ", "|_ ", "|_|"],
+			"c": [" _ ", "|  ", "|_ "],
+			"d": ["   ", " _|", "|_|"],
+			"e": [" _ ", "|_ ", "|_ "],
+			"f": [" _ ", "|_ ", "|  "],
+			"h": ["   ", "|_|", "| |"],
+			"i": ["   ", "  |", "  |"],
+			"j": ["   ", "  |", " _|"],
+			"l": ["   ", "|  ", "|_ "],
+			"n": [" _ ", "| |", "| |"],
+			"o": ["   ", " _ ", "|_|"],
+			"p": [" _ ", "|_|", "|  "],
+			"r": ["   ", " _ ", "|  "],
+			"s": [" _ ", "|_ ", " _|"],
+			"t": ["   ", "|_ ", "|_ "],
+			"u": ["   ", "| |", "|_|"],
+			"y": ["   ", "|_|", " _|"]
+		}
+
+	if char in chars:
+		return chars[char]
+	else:
+		return ["   ", "   ", " {0} ".format(char)]
+
+def draw_word(word):
+	word = word.lower()
+	line1 = ""
+	line2 = ""
+	line3 = ""
+	for char in word:
+		l1, l2, l3 = convert_letter(char)
+		line1 += l1
+		line2 += l2
+		line3 += l3
+
+	print("{0}\n{1}\n{2}".format(line1, line2, line3))
+
 
 if __name__ == '__main__':
 	main()
