@@ -12,7 +12,7 @@ import re
 def main():
 
 	dic = "german.dic"
-	# dic = "english.dic"
+	dic = "english.dic"
 
 	with open(dic, "r") as f:
 		words = f.read().split("\n")
@@ -20,8 +20,8 @@ def main():
 	words = [w.lower() for w in words]
 
 	bad_letters = "[gkmqvwxzäüöß]"
-	# bad_letters = "[gkmqvwxzäüößio]" # added i and o to bad letters
-	# bad_letters = "[gkmqvwxzäüößio-]" # added - after getting "three-and-a-halfpenny"
+	bad_letters = "[gkmqvwxzäüößio]" # added i and o to bad letters
+	bad_letters = "[gkmqvwxzäüößio-]" # added - after getting "three-and-a-halfpenny"
 
 	longest_possible_word = ""
 
@@ -29,7 +29,7 @@ def main():
 		if (len(w) >= len(longest_possible_word) and
 			not re.search(bad_letters, w)):
 			longest_possible_word = w
-
+	print(longest_possible_word)
 	draw_word(longest_possible_word)
 
 def convert_letter(char):
